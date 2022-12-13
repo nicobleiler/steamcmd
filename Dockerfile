@@ -12,3 +12,8 @@ WORKDIR /home/steam
 USER steam
 # Download SteamCMD and extract it
 RUN curl -s "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+# Switch to root user to clean up
+USER root
+RUN microdnf remove tar gzip -y
+# Switch back to the unprivileged steam user
+USER steam
