@@ -2,6 +2,7 @@ FROM redhat/ubi9-minimal
 LABEL maintainer="nico@bleiler.dev"
 
 RUN microdnf install shadow-utils glibc.i686 libstdc++.i686 tar gzip -y
+RUN microdnf upgrade -y
 RUN useradd -m steam
 WORKDIR /home/steam
 
