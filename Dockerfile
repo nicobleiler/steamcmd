@@ -18,7 +18,7 @@ WORKDIR ${STEAMCMDDIR}
 RUN curl -s "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
 # Switch to root user to clean up
 USER root
-RUN microdnf remove tar gzip shadow-utils openldap-companct -y
 RUN microdnf clean all -y
+RUN microdnf remove tar gzip shadow-utils microdnf libdnf librepo gpgme gnupg2 openldap-compat openldap -y
 # Switch back to the unprivileged steam user
-USER ${USER}
+# USER ${USER}
